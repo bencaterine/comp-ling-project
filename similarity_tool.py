@@ -15,7 +15,11 @@ def get_most_similar(movie, n=10):
     return pd.DataFrame({
         'movies': movies_df.Title.values[ind],
         'similarity': movie_sims[ind]
-    })
+    }, index=range(1, n+1))
 
 if __name__ == '__main__':
-    print(get_most_similar('Ant-Man'))
+    movie = 'Ant-Man'
+    n = 10
+
+    print('{} most similar movies to "{}":'.format(n, movie))
+    print(get_most_similar(movie, n))
